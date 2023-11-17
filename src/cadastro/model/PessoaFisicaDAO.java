@@ -110,7 +110,8 @@ public class PessoaFisicaDAO {
 
     public List<PessoaFisica> getPessoas() {
         List<PessoaFisica> list = new ArrayList<>();
-        String sql = "SELECT Pessoa.*, PessoaFisica.cpf AS cpf FROM Pessoa INNER JOIN PessoaFisica ON Pessoa.idPessoa = PessoaFisica.idPessoa ORDER BY nome";
+        String sql = "SELECT p.*, pf.cpf FROM Pessoa AS p INNER JOIN PessoaFisica AS pf ON p.idPessoa = pf.idPessoaFisica ORDER BY p.nome";
+
         try (PreparedStatement st = conn.prepareStatement(sql);
              ResultSet rs = st.executeQuery()) {
             while (rs.next()) {

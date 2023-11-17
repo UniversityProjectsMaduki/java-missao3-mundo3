@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b5946b-b490-4f22-99d5-69cd634ca610" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CadastroBD.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CadastroBDTeste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaFisicaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaJuridicaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadastro/model/util/ConectorBD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadastro/model/util/DbException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadastrobd/model/Pessoa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadastrobd/model/PessoaFisica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cadastrobd/model/PessoaJuridica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CadastroBDTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CadastroBDTeste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadastro/model/PessoaFisicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaFisicaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadastro/model/PessoaJuridicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaJuridicaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +25,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="proportion" value="0.5894085" />
@@ -60,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "",
+    "app.teamhub.trackedBranches": "143bgqf/main",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/Madu/Documents/Estacio/Missão 3/Missão3-Mundo3/versao2/CadastroBD",
     "node.js.detected.package.eslint": "true",
@@ -108,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700088180716</updated>
-      <workItem from="1700088181714" duration="42152000" />
+      <workItem from="1700088181714" duration="58347000" />
     </task>
     <servers />
   </component>
