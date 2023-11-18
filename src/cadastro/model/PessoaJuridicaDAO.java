@@ -26,9 +26,7 @@ public class PessoaJuridicaDAO {
     }
 
     public PessoaJuridica getPessoa(int id) throws SQLException {
-        final String sql = "SELECT P.*, PJ.cnpj FROM Pessoa P " +
-                "INNER JOIN PessoaJuridica PJ ON P.idPessoa = PJ.idPessoaJuridica " +
-                "WHERE PJ.idPessoaJuridica = ?";
+        final String sql = "SELECT P.*, PJ.cnpj FROM Pessoa P INNER JOIN PessoaJuridica PJ ON P.idPessoa = PJ.idPessoaJuridica WHERE PJ.idPessoaJuridica = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -42,23 +40,11 @@ public class PessoaJuridicaDAO {
 
     public List<PessoaJuridica> getPessoasJuridicas() throws SQLException {
         List<PessoaJuridica> list = new ArrayList<>();
-        String sql = "SELECT P.idPessoa, P.nome, P.logradouro, P.cidade, P.estado, P.telefone, P.email, PJ.cnpj " +
-                "FROM Pessoa P " +
-                "INNER JOIN PessoaJuridica PJ ON P.idPessoa = PJ.idPessoaJuridica " +
-                "ORDER BY P.nome";
+        final String sql = "SELECT P.*, PJ.cnpj FROM Pessoa P INNER JOIN PessoaJuridica PJ ON P.idPessoa = PJ.idPessoaJuridica ORDER BY P.nome";
         try (PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                list.add(new PessoaJuridica(
-                        rs.getInt("idPessoa"),
-                        rs.getString("nome"),
-                        rs.getString("logradouro"),
-                        rs.getString("cidade"),
-                        rs.getString("estado"),
-                        rs.getString("telefone"),
-                        rs.getString("email"),
-                        rs.getString("cnpj")
-                ));
+                list.add(extrairPessoaJuridica(rs));
             }
         }
         return list;
@@ -101,14 +87,14 @@ public class PessoaJuridicaDAO {
             conn.commit();
         } catch (SQLException e) {
             conn.rollback();
-            e.printStackTrace();
+            throw e;
         } finally {
             conn.setAutoCommit(true);
         }
     }
 
     public void alterar(PessoaJuridica pessoa) throws SQLException {
-        final String sqlPessoa = "UPDATE Pessoa SET nome = ?, logradouro = ?, cidade = ?, estado = ?, telefone = ?, email = ?, tipoPessoa = 'J' WHERE idPessoa = ?";
+        final String sqlPessoa = "UPDATE Pessoa SET nome = ?, logradouro = ?, cidade = ?, estado = ?, telefone = ?, email = ? WHERE idPessoa = ?";
         final String sqlPessoaJuridica = "UPDATE PessoaJuridica SET cnpj = ? WHERE idPessoaJuridica = ?";
 
         try {
@@ -129,33 +115,35 @@ public class PessoaJuridicaDAO {
                 stmtPessoaJuridica.executeUpdate();
             }
             conn.commit();
+        } catch (SQLException e) {
+            conn.rollback();
+            throw e;
         } finally {
             conn.setAutoCommit(true);
         }
     }
 
     public void excluir(int id) throws SQLException {
-        conn.setAutoCommit(false);
+        String sqlPessoaJuridica = "DELETE FROM PessoaJuridica WHERE idPessoaJuridica = ?";
+        String sqlPessoa = "DELETE FROM Pessoa WHERE idPessoa = ?";
+
         try {
-            String sqlPessoaJuridica = "DELETE FROM PessoaJuridica WHERE idPessoaJuridica = ?";
+            conn.setAutoCommit(false);
             try (PreparedStatement stmtPessoaJuridica = conn.prepareStatement(sqlPessoaJuridica)) {
                 stmtPessoaJuridica.setInt(1, id);
                 stmtPessoaJuridica.executeUpdate();
             }
-
-            String sqlPessoa = "DELETE FROM Pessoa WHERE idPessoa = ?";
             try (PreparedStatement stmtPessoa = conn.prepareStatement(sqlPessoa)) {
                 stmtPessoa.setInt(1, id);
                 stmtPessoa.executeUpdate();
             }
-
             conn.commit();
         } catch (SQLException e) {
             conn.rollback();
-            e.printStackTrace();
             throw e;
         } finally {
             conn.setAutoCommit(true);
         }
     }
+
 }

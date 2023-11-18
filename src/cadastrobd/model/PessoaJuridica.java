@@ -3,13 +3,13 @@ package cadastrobd.model;
 public class PessoaJuridica extends Pessoa {
     private String cnpj;
 
-    // Adicionado o tipoPessoa 'J' ao construtor para indicar Pessoa Jurídica
-    public PessoaJuridica(int id, String nome, String logradouro, String cidade, String estado, String telefone, String email, String cnpj) {
-        super(id, nome, logradouro, cidade, estado, telefone, email, 'J'); // Passa 'J' como argumento para o construtor da superclasse
+    // Construtor de PessoaJuridica
+    public PessoaJuridica(Integer id, String nome, String logradouro, String cidade, String estado, String telefone, String email, String cnpj) {
+        super(id, nome, logradouro, cidade, estado, telefone, email, 'J'); // Chama o construtor da superclasse com 'J' como tipoPessoa
         this.cnpj = cnpj;
     }
 
-    // Getters e setters para o campo CNPJ
+    // Getter e setter
     public String getCnpj() {
         return cnpj;
     }
@@ -18,10 +18,9 @@ public class PessoaJuridica extends Pessoa {
         this.cnpj = cnpj;
     }
 
-    // Método toString sobreposto para incluir CNPJ na representação em string da PessoaJuridica
+    // Método toString para incluir CNPJ
     @Override
     public String toString() {
-        // Chamada do toString() da superclasse e adição do CNPJ
         return super.toString() + ", CNPJ: " + cnpj;
     }
 }

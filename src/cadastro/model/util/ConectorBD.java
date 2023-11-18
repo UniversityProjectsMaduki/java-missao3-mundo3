@@ -20,7 +20,7 @@ public class ConectorBD {
                 String password = props.getProperty("password");
                 conn = DriverManager.getConnection(url, user, password);
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new RuntimeException("Erro ao obter conexão com o banco de dados: " + e.getMessage(), e);
             }
         }
         return conn;
@@ -32,7 +32,7 @@ public class ConectorBD {
                 statement.close();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Erro ao fechar o statement: " + e.getMessage(), e);
         }
     }
 
@@ -42,7 +42,7 @@ public class ConectorBD {
                 resultSet.close();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Erro ao fechar o resultSet: " + e.getMessage(), e);
         }
     }
 
@@ -52,7 +52,7 @@ public class ConectorBD {
                 conn.close();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Erro ao fechar a conexão com o banco de dados: " + e.getMessage(), e);
         }
     }
 

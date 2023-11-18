@@ -8,9 +8,9 @@ public class Pessoa {
     private String estado;
     private String telefone;
     private String email;
-    private char tipoPessoa; // Declarando o campo tipoPessoa
+    private char tipoPessoa;
 
-    // Adicionado tipoPessoa ao construtor
+    // Construtor
     public Pessoa(Integer id, String nome, String logradouro, String cidade, String estado, String telefone, String email, char tipoPessoa) {
         this.id = id;
         this.nome = nome;
@@ -22,7 +22,7 @@ public class Pessoa {
         this.tipoPessoa = tipoPessoa;
     }
 
-    // Método para exibir informações da pessoa
+    // Método exibir
     public void exibir() {
         System.out.println("ID: " + id);
         System.out.println("Nome: " + nome);
