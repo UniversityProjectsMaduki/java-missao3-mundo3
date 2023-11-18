@@ -3,11 +3,13 @@ package cadastrobd.model;
 public class PessoaFisica extends Pessoa {
     private String cpf;
 
-    public PessoaFisica(int id, String nome, String logradouro, String cidade, String estado, String telefone, String email, String cpf) {
-        super(id, nome, logradouro, cidade, estado, telefone, email);
+    // Adicionado o tipoPessoa 'F' ao construtor para indicar Pessoa Física
+    public PessoaFisica(Integer id, String nome, String logradouro, String cidade, String estado, String telefone, String email, String cpf) {
+        super(id, nome, logradouro, cidade, estado, telefone, email, 'F'); // Passa 'F' como argumento para o construtor da superclasse
         this.cpf = cpf;
     }
 
+    // Getters e setters para o campo CPF
     public String getCpf() {
         return cpf;
     }
@@ -16,17 +18,10 @@ public class PessoaFisica extends Pessoa {
         this.cpf = cpf;
     }
 
+    // Método toString sobreposto para incluir CPF na representação em string da PessoaFisica
     @Override
     public String toString() {
-        return "PessoaFisica{" +
-                "id=" + getId() +
-                ", nome='" + getNome() + '\'' +
-                ", logradouro='" + getLogradouro() + '\'' +
-                ", cidade='" + getCidade() + '\'' +
-                ", estado='" + getEstado() + '\'' +
-                ", telefone='" + getTelefone() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", cpf='" + cpf + '\'' +
-                '}';
+        // Chamada do toString() da superclasse e adição do CPF
+        return super.toString() + ", CPF: " + cpf;
     }
 }

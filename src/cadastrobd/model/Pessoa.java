@@ -4,37 +4,43 @@ public class Pessoa {
     private Integer id;
     private String nome;
     private String logradouro;
-    private String estado;
     private String cidade;
+    private String estado;
     private String telefone;
     private String email;
+    private char tipoPessoa; // Declarando o campo tipoPessoa
 
-
-    public Pessoa(Integer id, String nome, String logradouro, String cidade, String estado, String telefone, String email) {
+    // Adicionado tipoPessoa ao construtor
+    public Pessoa(Integer id, String nome, String logradouro, String cidade, String estado, String telefone, String email, char tipoPessoa) {
         this.id = id;
         this.nome = nome;
         this.logradouro = logradouro;
         this.cidade = cidade;
+        this.estado = estado;
         this.telefone = telefone;
         this.email = email;
-        this.estado = estado;
+        this.tipoPessoa = tipoPessoa;
     }
 
+    // Método para exibir informações da pessoa
     public void exibir() {
         System.out.println("ID: " + id);
         System.out.println("Nome: " + nome);
         System.out.println("Logradouro: " + logradouro);
-        System.out.println("Estado: " + estado);
         System.out.println("Cidade: " + cidade);
+        System.out.println("Estado: " + estado);
         System.out.println("Telefone: " + telefone);
         System.out.println("Email: " + email);
+        String tipo = (tipoPessoa == 'F') ? "Pessoa Física" : "Pessoa Jurídica";
+        System.out.println("Tipo: " + tipo);
     }
 
-    public int getId() {
+    // Getters e setters
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,16 +64,16 @@ public class Pessoa {
         return cidade;
     }
 
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
     public String getEstado() {
         return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
     }
 
     public String getTelefone() {
@@ -84,5 +90,13 @@ public class Pessoa {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public char getTipoPessoa() {
+        return tipoPessoa;
+    }
+
+    public void setTipoPessoa(char tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
 }

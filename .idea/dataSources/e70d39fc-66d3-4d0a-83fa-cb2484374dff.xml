@@ -16932,52 +16932,57 @@
       <ModifiedTimestamp>2023-11-04.08:55:55.647</ModifiedTimestamp>
       <ObjectId>933578364</ObjectId>
     </table>
-    <table id="5584" parent="5577" name="PessoaFisica">
+    <table id="5584" parent="5577" name="Pessoa">
+      <CreatedTimestamp>2023-11-16.11:51:13.853</CreatedTimestamp>
+      <ModifiedTimestamp>2023-11-16.11:51:14.117</ModifiedTimestamp>
+      <ObjectId>1557580587</ObjectId>
+    </table>
+    <table id="5585" parent="5577" name="PessoaFisica">
       <CreatedTimestamp>2023-11-04.08:55:40.227</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:43.250</ModifiedTimestamp>
       <ObjectId>965578478</ObjectId>
     </table>
-    <table id="5585" parent="5577" name="PessoaJuridica">
+    <table id="5586" parent="5577" name="PessoaJuridica">
       <CreatedTimestamp>2023-11-04.08:55:55.643</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:25.590</ModifiedTimestamp>
       <ObjectId>1013578649</ObjectId>
     </table>
-    <table id="5586" parent="5577" name="Produto">
+    <table id="5587" parent="5577" name="Produto">
       <CreatedTimestamp>2023-11-04.08:56:13.087</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:43.250</ModifiedTimestamp>
       <ObjectId>1061578820</ObjectId>
     </table>
-    <table id="5587" parent="5577" name="Usuario">
+    <table id="5588" parent="5577" name="Usuario">
       <CreatedTimestamp>2023-11-04.08:55:07.557</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:43.250</ModifiedTimestamp>
       <ObjectId>901578250</ObjectId>
     </table>
-    <column id="5588" parent="5581" name="idMovimentoCompra">
+    <column id="5589" parent="5581" name="idMovimentoCompra">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5589" parent="5581" name="quantidade">
+    <column id="5590" parent="5581" name="quantidade">
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5590" parent="5581" name="precoUnitario">
+    <column id="5591" parent="5581" name="precoUnitario">
       <DasType>numeric(18)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="5591" parent="5581" name="idProduto">
+    <column id="5592" parent="5581" name="idProduto">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5592" parent="5581" name="idFornecedor">
+    <column id="5593" parent="5581" name="idFornecedor">
       <DasType>int|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="5593" parent="5581" name="idOperador">
+    <column id="5594" parent="5581" name="idOperador">
       <DasType>int|0s</DasType>
       <Position>6</Position>
     </column>
-    <foreign-key id="5594" parent="5581" name="FK__Movimento__idPro__4316F928">
+    <foreign-key id="5595" parent="5581" name="FK__Movimento__idPro__4316F928">
       <ColNames>idProduto</ColNames>
       <CreatedTimestamp>2023-11-04.08:56:25.590</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:25.590</ModifiedTimestamp>
@@ -16987,7 +16992,7 @@
       <RefTableId>1061578820</RefTableId>
       <RefTableName>Produto</RefTableName>
     </foreign-key>
-    <foreign-key id="5595" parent="5581" name="FK__Movimento__idFor__440B1D61">
+    <foreign-key id="5596" parent="5581" name="FK__Movimento__idFor__440B1D61">
       <ColNames>idFornecedor</ColNames>
       <CreatedTimestamp>2023-11-04.08:56:25.590</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:25.590</ModifiedTimestamp>
@@ -16997,7 +17002,7 @@
       <RefTableId>1013578649</RefTableId>
       <RefTableName>PessoaJuridica</RefTableName>
     </foreign-key>
-    <foreign-key id="5596" parent="5581" name="FK__Movimento__idOpe__44FF419A">
+    <foreign-key id="5597" parent="5581" name="FK__Movimento__idOpe__44FF419A">
       <ColNames>idOperador</ColNames>
       <CreatedTimestamp>2023-11-04.08:56:25.590</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:25.590</ModifiedTimestamp>
@@ -17007,14 +17012,14 @@
       <RefTableId>901578250</RefTableId>
       <RefTableName>Usuario</RefTableName>
     </foreign-key>
-    <index id="5597" parent="5581" name="PK__Moviment__C0C865D660B610C6">
+    <index id="5598" parent="5581" name="PK__Moviment__C0C865D660B610C6">
       <Clustering>1</Clustering>
       <ColNames>idMovimentoCompra</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5598" parent="5581" name="PK__Moviment__C0C865D660B610C6">
+    <key id="5599" parent="5581" name="PK__Moviment__C0C865D660B610C6">
       <CreatedTimestamp>2023-11-04.08:56:25.590</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:25.590</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17022,32 +17027,32 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__Moviment__C0C865D660B610C6</UnderlyingIndexName>
     </key>
-    <column id="5599" parent="5582" name="idMovimentoVenda">
+    <column id="5600" parent="5582" name="idMovimentoVenda">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5600" parent="5582" name="quantidade">
+    <column id="5601" parent="5582" name="quantidade">
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5601" parent="5582" name="precoUnitario">
+    <column id="5602" parent="5582" name="precoUnitario">
       <DasType>numeric(18)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="5602" parent="5582" name="idProduto">
+    <column id="5603" parent="5582" name="idProduto">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5603" parent="5582" name="idComprador">
+    <column id="5604" parent="5582" name="idComprador">
       <DasType>int|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="5604" parent="5582" name="idOperador">
+    <column id="5605" parent="5582" name="idOperador">
       <DasType>int|0s</DasType>
       <Position>6</Position>
     </column>
-    <foreign-key id="5605" parent="5582" name="FK__Movimento__idPro__47DBAE45">
+    <foreign-key id="5606" parent="5582" name="FK__Movimento__idPro__47DBAE45">
       <ColNames>idProduto</ColNames>
       <CreatedTimestamp>2023-11-04.08:56:43.250</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:43.250</ModifiedTimestamp>
@@ -17057,7 +17062,7 @@
       <RefTableId>1061578820</RefTableId>
       <RefTableName>Produto</RefTableName>
     </foreign-key>
-    <foreign-key id="5606" parent="5582" name="FK__Movimento__idCom__48CFD27E">
+    <foreign-key id="5607" parent="5582" name="FK__Movimento__idCom__48CFD27E">
       <ColNames>idComprador</ColNames>
       <CreatedTimestamp>2023-11-04.08:56:43.250</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:43.250</ModifiedTimestamp>
@@ -17067,7 +17072,7 @@
       <RefTableId>965578478</RefTableId>
       <RefTableName>PessoaFisica</RefTableName>
     </foreign-key>
-    <foreign-key id="5607" parent="5582" name="FK__Movimento__idOpe__49C3F6B7">
+    <foreign-key id="5608" parent="5582" name="FK__Movimento__idOpe__49C3F6B7">
       <ColNames>idOperador</ColNames>
       <CreatedTimestamp>2023-11-04.08:56:43.250</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:43.250</ModifiedTimestamp>
@@ -17077,14 +17082,14 @@
       <RefTableId>901578250</RefTableId>
       <RefTableName>Usuario</RefTableName>
     </foreign-key>
-    <index id="5608" parent="5582" name="PK__Moviment__70B3545123097E8B">
+    <index id="5609" parent="5582" name="PK__Moviment__70B3545123097E8B">
       <Clustering>1</Clustering>
       <ColNames>idMovimentoVenda</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5609" parent="5582" name="PK__Moviment__70B3545123097E8B">
+    <key id="5610" parent="5582" name="PK__Moviment__70B3545123097E8B">
       <CreatedTimestamp>2023-11-04.08:56:43.250</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:43.250</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17092,43 +17097,43 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__Moviment__70B3545123097E8B</UnderlyingIndexName>
     </key>
-    <column id="5610" parent="5583" name="idPessoa">
+    <column id="5611" parent="5583" name="idPessoa">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5611" parent="5583" name="nome">
+    <column id="5612" parent="5583" name="nome">
       <DasType>varchar(255 char)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5612" parent="5583" name="logradouro">
+    <column id="5613" parent="5583" name="logradouro">
       <DasType>varchar(255 char)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="5613" parent="5583" name="cidade">
+    <column id="5614" parent="5583" name="cidade">
       <DasType>varchar(255 char)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5614" parent="5583" name="estado">
+    <column id="5615" parent="5583" name="estado">
       <DasType>char(2 char)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="5615" parent="5583" name="telefone">
+    <column id="5616" parent="5583" name="telefone">
       <DasType>varchar(11 char)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="5616" parent="5583" name="email">
+    <column id="5617" parent="5583" name="email">
       <DasType>varchar(255 char)|0s</DasType>
       <Position>7</Position>
     </column>
-    <index id="5617" parent="5583" name="PK__Pessoa__83D303D05B345609">
+    <index id="5618" parent="5583" name="PK__Pessoa__83D303D05B345609">
       <Clustering>1</Clustering>
       <ColNames>idPessoa</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5618" parent="5583" name="PK__Pessoa__83D303D05B345609">
+    <key id="5619" parent="5583" name="PK__Pessoa__83D303D05B345609">
       <CreatedTimestamp>2023-11-04.08:55:25.350</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:55:25.350</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17136,16 +17141,59 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__Pessoa__83D303D05B345609</UnderlyingIndexName>
     </key>
-    <column id="5619" parent="5584" name="idPessoaFisica">
+    <column id="5620" parent="5584" name="idPessoa">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(28)</SequenceIdentity>
+    </column>
+    <column id="5621" parent="5584" name="nome">
+      <DasType>varchar(255 char)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="5622" parent="5584" name="logradouro">
+      <DasType>varchar(255 char)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="5623" parent="5584" name="cidade">
+      <DasType>varchar(255 char)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="5624" parent="5584" name="estado">
+      <DasType>char(2 char)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="5625" parent="5584" name="telefone">
+      <DasType>varchar(11 char)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="5626" parent="5584" name="email">
+      <DasType>varchar(255 char)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="5627" parent="5584" name="PK__Pessoa__83D303D05B345609">
+      <Clustering>1</Clustering>
+      <ColNames>idPessoa</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5628" parent="5584" name="PK__Pessoa__83D303D05B345609">
+      <CreatedTimestamp>2023-11-16.11:51:14.117</CreatedTimestamp>
+      <ModifiedTimestamp>2023-11-16.11:51:14.117</ModifiedTimestamp>
+      <ObjectId>1573580644</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK__Pessoa__83D303D05B345609</UnderlyingIndexName>
+    </key>
+    <column id="5629" parent="5585" name="idPessoaFisica">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5620" parent="5584" name="cpf">
+    <column id="5630" parent="5585" name="cpf">
       <DasType>varchar(11 char)|0s</DasType>
       <Position>2</Position>
     </column>
-    <foreign-key id="5621" parent="5584" name="FK__PessoaFis__idPes__3B75D760">
+    <foreign-key id="5631" parent="5585" name="FK__PessoaFis__idPes__3B75D760">
       <ColNames>idPessoaFisica</ColNames>
       <CreatedTimestamp>2023-11-04.08:55:40.230</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:55:40.230</ModifiedTimestamp>
@@ -17155,14 +17203,14 @@
       <RefTableId>933578364</RefTableId>
       <RefTableName>Pessoa</RefTableName>
     </foreign-key>
-    <index id="5622" parent="5584" name="PK__PessoaFi__AE6868BD8148CAAB">
+    <index id="5632" parent="5585" name="PK__PessoaFi__AE6868BD8148CAAB">
       <Clustering>1</Clustering>
       <ColNames>idPessoaFisica</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5623" parent="5584" name="PK__PessoaFi__AE6868BD8148CAAB">
+    <key id="5633" parent="5585" name="PK__PessoaFi__AE6868BD8148CAAB">
       <CreatedTimestamp>2023-11-04.08:55:40.227</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:55:40.227</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17170,16 +17218,16 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__PessoaFi__AE6868BD8148CAAB</UnderlyingIndexName>
     </key>
-    <column id="5624" parent="5585" name="idPessoaJuridica">
+    <column id="5634" parent="5586" name="idPessoaJuridica">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5625" parent="5585" name="cnpj">
+    <column id="5635" parent="5586" name="cnpj">
       <DasType>varchar(14 char)|0s</DasType>
       <Position>2</Position>
     </column>
-    <foreign-key id="5626" parent="5585" name="FK__PessoaJur__idPes__3E52440B">
+    <foreign-key id="5636" parent="5586" name="FK__PessoaJur__idPes__3E52440B">
       <ColNames>idPessoaJuridica</ColNames>
       <CreatedTimestamp>2023-11-04.08:55:55.647</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:55:55.647</ModifiedTimestamp>
@@ -17189,14 +17237,14 @@
       <RefTableId>933578364</RefTableId>
       <RefTableName>Pessoa</RefTableName>
     </foreign-key>
-    <index id="5627" parent="5585" name="PK__PessoaJu__406D3D6E61A728B8">
+    <index id="5637" parent="5586" name="PK__PessoaJu__406D3D6E61A728B8">
       <Clustering>1</Clustering>
       <ColNames>idPessoaJuridica</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5628" parent="5585" name="PK__PessoaJu__406D3D6E61A728B8">
+    <key id="5638" parent="5586" name="PK__PessoaJu__406D3D6E61A728B8">
       <CreatedTimestamp>2023-11-04.08:55:55.643</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:55:55.643</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17204,31 +17252,31 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__PessoaJu__406D3D6E61A728B8</UnderlyingIndexName>
     </key>
-    <column id="5629" parent="5586" name="idProduto">
+    <column id="5639" parent="5587" name="idProduto">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5630" parent="5586" name="nome">
+    <column id="5640" parent="5587" name="nome">
       <DasType>varchar(255 char)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5631" parent="5586" name="quantidade">
+    <column id="5641" parent="5587" name="quantidade">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="5632" parent="5586" name="precoVenda">
+    <column id="5642" parent="5587" name="precoVenda">
       <DasType>numeric(18)|0s</DasType>
       <Position>4</Position>
     </column>
-    <index id="5633" parent="5586" name="PK__Produto__5EEDF7C393102927">
+    <index id="5643" parent="5587" name="PK__Produto__5EEDF7C393102927">
       <Clustering>1</Clustering>
       <ColNames>idProduto</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5634" parent="5586" name="PK__Produto__5EEDF7C393102927">
+    <key id="5644" parent="5587" name="PK__Produto__5EEDF7C393102927">
       <CreatedTimestamp>2023-11-04.08:56:13.087</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:56:13.087</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17236,27 +17284,27 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__Produto__5EEDF7C393102927</UnderlyingIndexName>
     </key>
-    <column id="5635" parent="5587" name="idOperador">
+    <column id="5645" parent="5588" name="idOperador">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5636" parent="5587" name="nome">
+    <column id="5646" parent="5588" name="nome">
       <DasType>varchar(255 char)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5637" parent="5587" name="senha">
+    <column id="5647" parent="5588" name="senha">
       <DasType>varchar(255 char)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="5638" parent="5587" name="PK__Usuario__D9DC4D4E388C8353">
+    <index id="5648" parent="5588" name="PK__Usuario__D9DC4D4E388C8353">
       <Clustering>1</Clustering>
       <ColNames>idOperador</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5639" parent="5587" name="PK__Usuario__D9DC4D4E388C8353">
+    <key id="5649" parent="5588" name="PK__Usuario__D9DC4D4E388C8353">
       <CreatedTimestamp>2023-11-04.08:55:07.560</CreatedTimestamp>
       <ModifiedTimestamp>2023-11-04.08:55:07.560</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>

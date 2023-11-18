@@ -14,7 +14,7 @@ public class PessoaJuridicaDAO {
 
     private PessoaJuridica extrairPessoaJuridica(ResultSet rs) throws SQLException {
         return new PessoaJuridica(
-                rs.getInt("idPessoa"), // Aqui também deve ser "idPessoa"
+                rs.getInt("idPessoa"),
                 rs.getString("nome"),
                 rs.getString("logradouro"),
                 rs.getString("cidade"),
@@ -24,8 +24,6 @@ public class PessoaJuridicaDAO {
                 rs.getString("cnpj")
         );
     }
-
-
 
     public PessoaJuridica getPessoa(int id) throws SQLException {
         final String sql = "SELECT P.*, PJ.cnpj FROM Pessoa P " +
@@ -52,7 +50,7 @@ public class PessoaJuridicaDAO {
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 list.add(new PessoaJuridica(
-                        rs.getInt("idPessoa"), // Use "idPessoa" pois é o nome da coluna na tabela Pessoa
+                        rs.getInt("idPessoa"),
                         rs.getString("nome"),
                         rs.getString("logradouro"),
                         rs.getString("cidade"),
@@ -66,33 +64,13 @@ public class PessoaJuridicaDAO {
         return list;
     }
 
-    private boolean idExiste(int id) throws SQLException {
-        if (idExisteNaTabela("PessoaJuridica", "idPessoaJuridica", id) || idExisteNaTabela("Pessoa", "idPessoa", id)) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean idExisteNaTabela(String tabela, String colunaId, int id) throws SQLException {
-        final String sql = "SELECT COUNT(*) FROM " + tabela + " WHERE " + colunaId + " = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1) > 0;
-            }
-        }
-        return false;
-    }
-
     public void incluir(PessoaJuridica pessoa) throws SQLException {
-        final String sqlPessoa = "INSERT INTO Pessoa (nome, logradouro, cidade, estado, telefone, email) VALUES (?, ?, ?, ?, ?, ?)";
+        final String sqlPessoa = "INSERT INTO Pessoa (nome, logradouro, cidade, estado, telefone, email, tipoPessoa) VALUES (?, ?, ?, ?, ?, ?, 'J')";
         final String sqlPessoaJuridica = "INSERT INTO PessoaJuridica (idPessoaJuridica, cnpj) VALUES (?, ?)";
 
         try {
             conn.setAutoCommit(false);
 
-            // Insere na tabela Pessoa e pega o ID gerado
             int pessoaId = 0;
             try (PreparedStatement stmtPessoa = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS)) {
                 stmtPessoa.setString(1, pessoa.getNome());
@@ -110,12 +88,10 @@ public class PessoaJuridicaDAO {
                 }
             }
 
-            // Verifica se um ID foi gerado
             if (pessoaId == 0) {
                 throw new SQLException("Falha ao inserir pessoa, nenhum ID foi gerado.");
             }
 
-            // Insere na tabela PessoaJuridica com o ID gerado
             try (PreparedStatement stmtPessoaJuridica = conn.prepareStatement(sqlPessoaJuridica)) {
                 stmtPessoaJuridica.setInt(1, pessoaId);
                 stmtPessoaJuridica.setString(2, pessoa.getCnpj());
@@ -124,28 +100,17 @@ public class PessoaJuridicaDAO {
 
             conn.commit();
         } catch (SQLException e) {
-            try {
-                conn.rollback();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
+            conn.rollback();
             e.printStackTrace();
         } finally {
-            try {
-                conn.setAutoCommit(true);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            conn.setAutoCommit(true);
         }
     }
 
-
-
-
-
     public void alterar(PessoaJuridica pessoa) throws SQLException {
-        final String sqlPessoa = "UPDATE Pessoa SET nome = ?, logradouro = ?, cidade = ?, estado = ?, telefone = ?, email = ? WHERE idPessoa = ?";
+        final String sqlPessoa = "UPDATE Pessoa SET nome = ?, logradouro = ?, cidade = ?, estado = ?, telefone = ?, email = ?, tipoPessoa = 'J' WHERE idPessoa = ?";
         final String sqlPessoaJuridica = "UPDATE PessoaJuridica SET cnpj = ? WHERE idPessoaJuridica = ?";
+
         try {
             conn.setAutoCommit(false);
             try (PreparedStatement stmtPessoa = conn.prepareStatement(sqlPessoa)) {
@@ -165,30 +130,32 @@ public class PessoaJuridicaDAO {
             }
             conn.commit();
         } finally {
-            try {
-                conn.setAutoCommit(true);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            conn.setAutoCommit(true);
         }
     }
 
     public void excluir(int id) throws SQLException {
-        final String sql = "DELETE FROM PessoaJuridica WHERE idPessoaJuridica = ?; " +
-                "DELETE FROM Pessoa WHERE idPessoa = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            conn.setAutoCommit(false);
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-            stmt.setInt(2, id);
-            stmt.executeUpdate();
-            conn.commit();
-        } finally {
-            try {
-                conn.setAutoCommit(true);
-            } catch (SQLException e) {
-                e.printStackTrace();
+        conn.setAutoCommit(false);
+        try {
+            String sqlPessoaJuridica = "DELETE FROM PessoaJuridica WHERE idPessoaJuridica = ?";
+            try (PreparedStatement stmtPessoaJuridica = conn.prepareStatement(sqlPessoaJuridica)) {
+                stmtPessoaJuridica.setInt(1, id);
+                stmtPessoaJuridica.executeUpdate();
             }
+
+            String sqlPessoa = "DELETE FROM Pessoa WHERE idPessoa = ?";
+            try (PreparedStatement stmtPessoa = conn.prepareStatement(sqlPessoa)) {
+                stmtPessoa.setInt(1, id);
+                stmtPessoa.executeUpdate();
+            }
+
+            conn.commit();
+        } catch (SQLException e) {
+            conn.rollback();
+            e.printStackTrace();
+            throw e;
+        } finally {
+            conn.setAutoCommit(true);
         }
     }
 }

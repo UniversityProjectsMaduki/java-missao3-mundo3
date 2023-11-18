@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b5946b-b490-4f22-99d5-69cd634ca610" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e70d39fc-66d3-4d0a-83fa-cb2484374dff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e70d39fc-66d3-4d0a-83fa-cb2484374dff.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadastro/model/PessoaFisicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaFisicaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cadastro/model/PessoaJuridicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaJuridicaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadastrobd/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastrobd/model/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadastrobd/model/PessoaFisica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastrobd/model/PessoaFisica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cadastrobd/model/PessoaJuridica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastrobd/model/PessoaJuridica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,11 +101,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700088180716</updated>
-      <workItem from="1700088181714" duration="64572000" />
+      <workItem from="1700088181714" duration="68163000" />
     </task>
+    <task id="LOCAL-00001" summary="Correção de pj">
+      <option name="closed" value="true" />
+      <created>1700279601689</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700279601690</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Correção de pj" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção de pj" />
   </component>
 </project>
