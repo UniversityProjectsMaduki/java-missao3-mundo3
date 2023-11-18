@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b5946b-b490-4f22-99d5-69cd634ca610" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e70d39fc-66d3-4d0a-83fa-cb2484374dff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e70d39fc-66d3-4d0a-83fa-cb2484374dff.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadastro/model/PessoaFisicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaFisicaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadastro/model/PessoaJuridicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastro/model/PessoaJuridicaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadastro/model/util/ConectorBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastro/model/util/ConectorBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadastrobd/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastrobd/model/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadastrobd/model/PessoaFisica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastrobd/model/PessoaFisica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cadastrobd/model/PessoaJuridica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cadastrobd/model/PessoaJuridica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CadastroBDTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CadastroBDTeste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +103,9 @@
       <workItem from="1700088181714" duration="68295000" />
       <workItem from="1700283285954" duration="8036000" />
       <workItem from="1700292789824" duration="1266000" />
-      <workItem from="1700320012177" duration="5738000" />
+      <workItem from="1700320012177" duration="9212000" />
+      <workItem from="1700340588153" duration="1372000" />
+      <workItem from="1700347419328" duration="3170000" />
     </task>
     <task id="LOCAL-00001" summary="Correção de pj">
       <option name="closed" value="true" />
@@ -127,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700283191416</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finalizado">
+      <option name="closed" value="true" />
+      <created>1700327115447</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700327115447</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +139,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Correção de pj" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção de pj" />
+    <MESSAGE value="Finalizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado" />
   </component>
 </project>

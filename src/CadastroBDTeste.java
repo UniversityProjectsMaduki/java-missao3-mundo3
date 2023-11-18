@@ -26,17 +26,19 @@ public class CadastroBDTeste {
             System.out.println("3 - Excluir Pessoa");
             System.out.println("4 - Buscar pelo Id");
             System.out.println("5 - Exibir Todos");
+            System.out.println("6 - Exibir Somente Pessoas Físicas");
+            System.out.println("7 - Exibir Somente Pessoas Jurídicas");
             System.out.println("0 - Finalizar Programa");
             System.out.println("==================");
             escolha = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer do scanner
+            scanner.nextLine();
 
             try {
                 switch (escolha) {
                     case 1:
                         System.out.println("F - Pessoa Fisica | J - Pessoa Juridica");
                         char tipoInclusao = scanner.next().charAt(0);
-                        scanner.nextLine(); // Limpa o buffer do scanner
+                        scanner.nextLine();
 
                         if (tipoInclusao == 'F' || tipoInclusao == 'f') {
                             cadastrarPessoaFisica(pessoaFisicaDAO, scanner);
@@ -60,13 +62,17 @@ public class CadastroBDTeste {
                         break;
 
                     case 5:
-                        exibirTodasPessoas(pessoaFisicaDAO, pessoaJuridicaDAO, scanner);
+                        exibirTodasPessoas(pessoaFisicaDAO, pessoaJuridicaDAO);
                         break;
-
+                    case 6:
+                        exibirPessoasFisicas(pessoaFisicaDAO);
+                        break;
+                    case 7:
+                        exibirPessoasJuridicas(pessoaJuridicaDAO);
+                        break;
                     case 0:
                         System.out.println("Encerrando o programa.");
                         break;
-
                     default:
                         System.out.println("Opção inválida. Tente novamente.");
                 }
@@ -77,7 +83,7 @@ public class CadastroBDTeste {
         } while (escolha != 0);
     }
 
-    // Métodos para cadastrarPessoaFisica, alterarPessoa, excluirPessoa, buscarPessoaPeloId e exibirTodasPessoas
+    // Métods para cadastrar Pessoa Fisica
     private static void cadastrarPessoaFisica(PessoaFisicaDAO pessoaFisicaDAO, Scanner scanner) throws SQLException {
         System.out.println("Digite o nome da Pessoa Física:");
         String nome = scanner.nextLine();
@@ -99,6 +105,7 @@ public class CadastroBDTeste {
         System.out.println("Pessoa Física cadastrada com sucesso.");
     }
 
+    // Métods para cadastrar Pessoa Juridica
     private static void cadastrarPessoaJuridica(PessoaJuridicaDAO pessoaJuridicaDAO, Scanner scanner) throws SQLException {
         System.out.println("Digite o nome da Pessoa Jurídica:");
         String nome = scanner.nextLine();
@@ -120,15 +127,16 @@ public class CadastroBDTeste {
         System.out.println("Pessoa Jurídica cadastrada com sucesso.");
     }
 
+    // Métods para alterar Pessoas
     private static void alterarPessoa(PessoaFisicaDAO pessoaFisicaDAO, PessoaJuridicaDAO pessoaJuridicaDAO, Scanner scanner) throws SQLException {
         System.out.println("F - Alterar Pessoa Física | J - Alterar Pessoa Jurídica");
         char tipoPessoa = scanner.next().charAt(0);
-        scanner.nextLine(); // Limpa o buffer do scanner
+        scanner.nextLine();
 
         if (tipoPessoa == 'F' || tipoPessoa == 'f') {
             System.out.println("Digite o ID da Pessoa Física que deseja alterar:");
             int id = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer do scanner
+            scanner.nextLine();
 
             PessoaFisica pessoaExistente = pessoaFisicaDAO.getPessoa(id);
 
@@ -157,7 +165,7 @@ public class CadastroBDTeste {
         } else if (tipoPessoa == 'J' || tipoPessoa == 'j') {
             System.out.println("Digite o ID da Pessoa Jurídica que deseja alterar:");
             int id = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer do scanner
+            scanner.nextLine();
 
             PessoaJuridica pessoaExistente = pessoaJuridicaDAO.getPessoa(id);
 
@@ -188,10 +196,11 @@ public class CadastroBDTeste {
         }
     }
 
+    // Métods para excluir Pessoas
     private static void excluirPessoa(PessoaFisicaDAO pessoaFisicaDAO, PessoaJuridicaDAO pessoaJuridicaDAO, Scanner scanner) throws SQLException {
         System.out.println("F - Excluir Pessoa Física | J - Excluir Pessoa Jurídica");
         char tipoPessoa = scanner.next().charAt(0);
-        scanner.nextLine(); // Limpa o buffer do scanner
+        scanner.nextLine();
 
         if (tipoPessoa == 'F' || tipoPessoa == 'f') {
             System.out.println("Digite o ID da Pessoa Física a ser excluída:");
@@ -208,15 +217,16 @@ public class CadastroBDTeste {
         }
     }
 
+    // Métods para buscar Pessoas
     private static void buscarPessoaPeloId(PessoaFisicaDAO pessoaFisicaDAO, PessoaJuridicaDAO pessoaJuridicaDAO, Scanner scanner) throws SQLException {
         System.out.println("F - Buscar Pessoa Física | J - Buscar Pessoa Jurídica");
         char tipoPessoa = scanner.next().charAt(0);
-        scanner.nextLine(); // Limpa o buffer do scanner
+        scanner.nextLine();
 
         if (tipoPessoa == 'F' || tipoPessoa == 'f') {
             System.out.println("Digite o ID da Pessoa Física:");
             int id = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer do scanner
+            scanner.nextLine();
 
             PessoaFisica pessoaFisica = pessoaFisicaDAO.getPessoa(id);
 
@@ -236,7 +246,7 @@ public class CadastroBDTeste {
         } else if (tipoPessoa == 'J' || tipoPessoa == 'j') {
             System.out.println("Digite o ID da Pessoa Jurídica:");
             int id = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer do scanner
+            scanner.nextLine();
 
             PessoaJuridica pessoaJuridica = pessoaJuridicaDAO.getPessoa(id);
 
@@ -258,7 +268,8 @@ public class CadastroBDTeste {
         }
     }
 
-    private static void exibirTodasPessoas(PessoaFisicaDAO pessoaFisicaDAO, PessoaJuridicaDAO pessoaJuridicaDAO, Scanner scanner) throws SQLException {
+    // Métods para exibir todas as Pessoas
+    private static void exibirTodasPessoas(PessoaFisicaDAO pessoaFisicaDAO, PessoaJuridicaDAO pessoaJuridicaDAO) throws SQLException {
         System.out.println("Pessoas Físicas Cadastradas:");
         List<PessoaFisica> pessoasFisicas = pessoaFisicaDAO.getPessoas();
         if (pessoasFisicas.isEmpty()) {
@@ -277,8 +288,48 @@ public class CadastroBDTeste {
             }
         }
 
-        System.out.println("\nPessoas Jurídicas Cadastradas:");
-        List<PessoaJuridica> pessoasJuridicas = pessoaJuridicaDAO.getPessoasJuridicas(); // Método corrigido
+        System.out.println("Pessoas Jurídicas Cadastradas:");
+        List<PessoaJuridica> pessoasJuridicas = pessoaJuridicaDAO.getPessoasJuridicas();
+        if (pessoasJuridicas.isEmpty()) {
+            System.out.println("Nenhuma Pessoa Jurídica cadastrada.");
+        } else {
+            for (PessoaJuridica pj : pessoasJuridicas) {
+                System.out.println("ID: " + pj.getId());
+                System.out.println("Nome: " + pj.getNome());
+                System.out.println("Logradouro: " + pj.getLogradouro());
+                System.out.println("Cidade: " + pj.getCidade());
+                System.out.println("Estado: " + pj.getEstado());
+                System.out.println("Telefone: " + pj.getTelefone());
+                System.out.println("Email: " + pj.getEmail());
+                System.out.println("CNPJ: " + pj.getCnpj());
+                System.out.println();
+            }
+        }
+    }
+
+    // Métods para exibir Pessoas Fisicas
+    private static void exibirPessoasFisicas(PessoaFisicaDAO pessoaFisicaDAO) throws SQLException {
+        List<PessoaFisica> pessoasFisicas = pessoaFisicaDAO.getPessoas();
+        if (pessoasFisicas.isEmpty()) {
+            System.out.println("Nenhuma Pessoa Física cadastrada.");
+        } else {
+            for (PessoaFisica pf : pessoasFisicas) {
+                System.out.println("ID: " + pf.getId());
+                System.out.println("Nome: " + pf.getNome());
+                System.out.println("Logradouro: " + pf.getLogradouro());
+                System.out.println("Cidade: " + pf.getCidade());
+                System.out.println("Estado: " + pf.getEstado());
+                System.out.println("Telefone: " + pf.getTelefone());
+                System.out.println("Email: " + pf.getEmail());
+                System.out.println("CPF: " + pf.getCpf());
+                System.out.println();
+            }
+        }
+    }
+
+    // Métods para exibir Pessoas Fisicas
+    private static void exibirPessoasJuridicas(PessoaJuridicaDAO pessoaJuridicaDAO) throws SQLException {
+        List<PessoaJuridica> pessoasJuridicas = pessoaJuridicaDAO.getPessoasJuridicas();
         if (pessoasJuridicas.isEmpty()) {
             System.out.println("Nenhuma Pessoa Jurídica cadastrada.");
         } else {
