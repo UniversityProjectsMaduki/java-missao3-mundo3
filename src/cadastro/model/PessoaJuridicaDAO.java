@@ -14,7 +14,7 @@ public class PessoaJuridicaDAO {
 
     private PessoaJuridica extrairPessoaJuridica(ResultSet rs) throws SQLException {
         return new PessoaJuridica(
-                rs.getInt("idPessoaJuridica"),
+                rs.getInt("idPessoa"), // Aqui também deve ser "idPessoa"
                 rs.getString("nome"),
                 rs.getString("logradouro"),
                 rs.getString("cidade"),
@@ -24,6 +24,8 @@ public class PessoaJuridicaDAO {
                 rs.getString("cnpj")
         );
     }
+
+
 
     public PessoaJuridica getPessoa(int id) throws SQLException {
         final String sql = "SELECT P.*, PJ.cnpj FROM Pessoa P " +
@@ -42,13 +44,23 @@ public class PessoaJuridicaDAO {
 
     public List<PessoaJuridica> getPessoasJuridicas() throws SQLException {
         List<PessoaJuridica> list = new ArrayList<>();
-        String sql = "SELECT P.*, PJ.cnpj FROM Pessoa P " +
+        String sql = "SELECT P.idPessoa, P.nome, P.logradouro, P.cidade, P.estado, P.telefone, P.email, PJ.cnpj " +
+                "FROM Pessoa P " +
                 "INNER JOIN PessoaJuridica PJ ON P.idPessoa = PJ.idPessoaJuridica " +
                 "ORDER BY P.nome";
         try (PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                list.add(extrairPessoaJuridica(rs));
+                list.add(new PessoaJuridica(
+                        rs.getInt("idPessoa"), // Use "idPessoa" pois é o nome da coluna na tabela Pessoa
+                        rs.getString("nome"),
+                        rs.getString("logradouro"),
+                        rs.getString("cidade"),
+                        rs.getString("estado"),
+                        rs.getString("telefone"),
+                        rs.getString("email"),
+                        rs.getString("cnpj")
+                ));
             }
         }
         return list;
@@ -74,32 +86,38 @@ public class PessoaJuridicaDAO {
     }
 
     public void incluir(PessoaJuridica pessoa) throws SQLException {
-        // Verifica se o ID já existe em alguma das duas tabelas
-        if (idExiste(pessoa.getId())) {
-            System.out.println("Erro: ID já existe!");
-            return; // Interrompe a execução se o ID já existir
-        }
-
-        final String sqlPessoa = "INSERT INTO Pessoa (idPessoa, nome, logradouro, cidade, estado, telefone, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        final String sqlPessoa = "INSERT INTO Pessoa (nome, logradouro, cidade, estado, telefone, email) VALUES (?, ?, ?, ?, ?, ?)";
         final String sqlPessoaJuridica = "INSERT INTO PessoaJuridica (idPessoaJuridica, cnpj) VALUES (?, ?)";
+
         try {
             conn.setAutoCommit(false);
 
-            // Insere na tabela Pessoa
-            try (PreparedStatement stmtPessoa = conn.prepareStatement(sqlPessoa)) {
-                stmtPessoa.setInt(1, pessoa.getId());
-                stmtPessoa.setString(2, pessoa.getNome());
-                stmtPessoa.setString(3, pessoa.getLogradouro());
-                stmtPessoa.setString(4, pessoa.getCidade());
-                stmtPessoa.setString(5, pessoa.getEstado());
-                stmtPessoa.setString(6, pessoa.getTelefone());
-                stmtPessoa.setString(7, pessoa.getEmail());
+            // Insere na tabela Pessoa e pega o ID gerado
+            int pessoaId = 0;
+            try (PreparedStatement stmtPessoa = conn.prepareStatement(sqlPessoa, Statement.RETURN_GENERATED_KEYS)) {
+                stmtPessoa.setString(1, pessoa.getNome());
+                stmtPessoa.setString(2, pessoa.getLogradouro());
+                stmtPessoa.setString(3, pessoa.getCidade());
+                stmtPessoa.setString(4, pessoa.getEstado());
+                stmtPessoa.setString(5, pessoa.getTelefone());
+                stmtPessoa.setString(6, pessoa.getEmail());
                 stmtPessoa.executeUpdate();
+
+                try (ResultSet generatedKeys = stmtPessoa.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        pessoaId = generatedKeys.getInt(1);
+                    }
+                }
             }
 
-            // Insere na tabela PessoaJuridica
+            // Verifica se um ID foi gerado
+            if (pessoaId == 0) {
+                throw new SQLException("Falha ao inserir pessoa, nenhum ID foi gerado.");
+            }
+
+            // Insere na tabela PessoaJuridica com o ID gerado
             try (PreparedStatement stmtPessoaJuridica = conn.prepareStatement(sqlPessoaJuridica)) {
-                stmtPessoaJuridica.setInt(1, pessoa.getId());
+                stmtPessoaJuridica.setInt(1, pessoaId);
                 stmtPessoaJuridica.setString(2, pessoa.getCnpj());
                 stmtPessoaJuridica.executeUpdate();
             }
@@ -120,6 +138,7 @@ public class PessoaJuridicaDAO {
             }
         }
     }
+
 
 
 
