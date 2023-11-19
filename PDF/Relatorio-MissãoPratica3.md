@@ -859,7 +859,58 @@ dburl=jdbc:sqlserver://localhost:1433;databaseName=loja;encrypt=true;trustServer
 
 ### Resultados
 
-> prints
+**Consultas Realizadas:**
+
+- Incluir Pessoa Física.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/Inclui-PF.png?raw=true)
+
+- Incluir Pessoa jurídica.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/Inclui-PJ.png?raw=true)
+
+- Alterar Pessoa Física.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/altera-pf.png?raw=true)
+
+- Alterar Pessoa jurídica.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/altera-pj.png?raw=true)
+
+- Excluir Pessoa.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/exclui.png?raw=true)
+
+- Busca por Id de Pessoa Física.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/busca-id-pf.png?raw=true)
+
+- Busca por Id de Pessoa jurídica.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/busca-id-pj.png?raw=true)
+
+- Exibir Todos.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/exibe-todos.png?raw=true)
+
+- Exibir Somente Pessoas Físicas.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/exibe-pf.png?raw=true)
+
+- Exibir Somente Pessoas Jurídicas.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/exibe-pj.png?raw=true)
+
+- Finalizar Programa.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/encerra.png?raw=true)
+
+- Exibição da tabela Pessoa.
+
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/bd-intellij.png?raw=true)
+![Resultado da Execução](https://github.com/madukisp/java-missao3-mundo3/blob/main/img/sql-server.png?raw=true)
+
+
 
 ## Análise e Conclusão
 

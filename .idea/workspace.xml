@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="33b5946b-b490-4f22-99d5-69cd634ca610" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CadastroBDTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CadastroBDTeste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDF/Relatorio-MissãoPratica3.md" beforeDir="false" afterPath="$PROJECT_DIR$/PDF/Relatorio-MissãoPratica3.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +106,7 @@
       <workItem from="1700320012177" duration="9212000" />
       <workItem from="1700340588153" duration="1372000" />
       <workItem from="1700347419328" duration="3170000" />
+      <workItem from="1700351199888" duration="967000" />
     </task>
     <task id="LOCAL-00001" summary="Correção de pj">
       <option name="closed" value="true" />
@@ -131,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700327115447</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Enviando imagens de prints">
+      <option name="closed" value="true" />
+      <created>1700351232746</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700351232746</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +149,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Correção de pj" />
     <MESSAGE value="Finalizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizado" />
+    <MESSAGE value="Enviando imagens de prints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enviando imagens de prints" />
   </component>
 </project>
